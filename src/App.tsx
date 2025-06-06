@@ -3,8 +3,8 @@ import Home from "./components/home/Home";
 import About from "./components/about/About";
 import Skills from "./components/skills/Skills";
 import Services from "./components/services/Services";
+import Reviews from "./components/reviews/Reviews";
 import Qualification from "./components/qualification/Qualification";
-import Testimonials from "./components/Testimonials/testimonials";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 function App() {
@@ -15,9 +15,9 @@ function App() {
         <Home />
         <About />
         <Skills />
-        {/* <Services /> */}
+        <Services />
         <Qualification />
-        <Testimonials />
+        <Reviews />
         <Contact />
         <Footer />
       </main>

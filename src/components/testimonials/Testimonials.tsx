@@ -13,7 +13,7 @@ import { Pagination } from "swiper/modules";
 
 const MAX_LENGTH = 200;
 
-const testimonials = () => {
+const Testimonials = () => {
   const [expandedIds, setExpandedIds] = useState<number[]>([]);
 
   const toggleDescription = (id: number) => {
@@ -84,4 +84,4 @@ const testimonials = () => {
   );
 };
 
-export default testimonials;
+export default Testimonials;
