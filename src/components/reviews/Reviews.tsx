@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DataReviews } from "./DataReviews";
+import "./Reviews.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
