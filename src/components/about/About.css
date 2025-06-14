@@ -47,7 +47,7 @@
   margin-bottom: var(--mb-2-5);
 }
 
-.experience{
+/* .experience{
   background-color: #CEFF00;
 }
 
@@ -95,7 +95,7 @@
 
 .focus .about__icon {
   color: #326afd;
-}
+} */
 
 /* For large devices */
 @media screen and (max-width: 992px) {
