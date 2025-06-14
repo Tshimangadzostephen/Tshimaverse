@@ -70,6 +70,10 @@
   box-sizing: border-box;
 }
 
+/* .main{
+  color: # !important; 
+} */
+
 html {
   scroll-behavior: smooth;
 }
@@ -149,19 +153,26 @@ img {
 /*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
-  background-color: var(--title-color);
-  color: var(--container-color);
+  background-color: #CEFF00;;
+  color: #032c55;
   padding: 1.25rem 2rem;
   border-radius: 1rem;
   font-weight: var(--font-medium);
 }
 
 .button:hover {
-  background-color: var(--title-color-dark);
+  background-color: #CEFF00;
+  color: #032c55;
+}
+/* 5E5BC7 -purple */
+
+.button .button__icon path {
+  fill: #032c55 !important;
 }
 
 .button__icon {
   margin-left: var(--mb-0-5);
+  fill: var(--container-color) !important;
 }
 
 .button--flex {

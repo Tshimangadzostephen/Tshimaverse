@@ -1,6 +1,6 @@
 .footer {
-  background-color: var(--container-color);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #001830;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
 }
 
 .footer_container {
@@ -9,7 +9,7 @@
 
 .footer_title,
 .footer_link {
-  color: var(--title-color);
+  color: #CEFF00;
 }
 
 .footer_title {
@@ -18,7 +18,7 @@
 }
 
 .footer_link:hover {
-  color: var(--title-color-dark);
+  color: #c0ef03;
 }
 
 .footer_list {
@@ -43,7 +43,8 @@
 .footer__copy {
   display: block;
   margin-top: 4.5rem;
-  color: var(--title-color);
+  color: #CEFF00;
+  opacity: 0.3;
   text-align: center;
   font-size: var(--smaller-font-size);
 }

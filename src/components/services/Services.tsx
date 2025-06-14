@@ -112,7 +112,7 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="services__content whatsapp_content">
+        {/* <div className="services__content whatsapp_content">
           <div>
             <i className="uil uil-whatsapp services__icon"></i>
             <h3 className="services__title">
@@ -144,7 +144,7 @@ const Services = () => {
                 responses, and integrating with customer support or sales
                 systems.
               </p>
-              {/* <ul className="services__modal-services grid">
+              <ul className="services__modal-services grid">
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">Web Design</p>
@@ -159,10 +159,10 @@ const Services = () => {
                     WhatsApp Business Solutions
                   </p>
                 </li>
-              </ul> */}
+              </ul>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -11,6 +11,16 @@ const Contact = () => {
 
     if (!form.current) return;
 
+    const formData = new FormData(form.current);
+    const name = formData.get("name")?.toString().trim();
+    const email = formData.get("email")?.toString().trim();
+    const messageText = formData.get("project")?.toString().trim();
+
+    if (!name || !email || !messageText) {
+      setMessage("⚠️ Please fill in all fields before sending.");
+      return;
+    }
+
     emailjs
       .sendForm("service_tpyx75a", "template_zzwed5d", form.current, {
         publicKey: "_4mSo5h_Ruf9Y-Ts_",
@@ -46,7 +56,7 @@ const Contact = () => {
               {/* <span className="contact__card-data">
                 tshimangadzostephen@icloud.com
               </span> */}
-              <br></br>
+              {/* <br></br> */}
 
               <a
                 href="mailto:tshimangadzo.munzhelele@icloud.com.com"
@@ -61,10 +71,8 @@ const Contact = () => {
             <div className="contact__card">
               <i className="bx bxl-whatsapp contact__card-icon"></i>
               <h3 className="contact__card-title">Whatsapp</h3>
-              {/* <span className="contact__card-data">079 969 1833</span> */}
-              <br></br>
               <a
-                href="https://api.whatsapp.com/send?phone=62214408789&text=Hello, more information!"
+                href="https://api.whatsapp.com/send?phone=0799691833&text=Hello, from tshimaverse!"
                 className="contact__button"
               >
                 Text me{" "}
@@ -77,7 +85,7 @@ const Contact = () => {
               <i className="uil uil-linkedin-alt contact__card-icon"></i>
 
               <h3 className="contact__card-title">LinkedIn</h3>
-              <br></br>
+              {/* <br></br> */}
 
               <a
                 href="https://www.linkedin.com/in/tshimangadzo-munzhelele/"
@@ -101,6 +109,7 @@ const Contact = () => {
                 name="name"
                 className="contact__form-input"
                 placeholder="Your name"
+                required
               />
             </div>
 
@@ -111,6 +120,7 @@ const Contact = () => {
                 name="email"
                 className="contact__form-input"
                 placeholder="Your email"
+                required
               />
             </div>
 
@@ -122,6 +132,7 @@ const Contact = () => {
                 placeholder="Enter as many details as possible..."
                 cols={30}
                 rows={10}
+                required
               ></textarea>
             </div>
 

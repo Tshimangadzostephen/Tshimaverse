@@ -1,5 +1,5 @@
 .services__container{
-    grid-template-columns: repeat(3,270px);
+    grid-template-columns: repeat(2,270px);
     justify-content: center;
     column-gap: 1.8rem;
 }
@@ -79,6 +79,7 @@
     border: 1px solid rgba(0,0,0,0.1);
     background-color: var(--container-color);
     padding: 6rem 0 2rem 2.5rem;
+    border-radius: 5%;
 }
 
 .services__icon{
@@ -99,13 +100,15 @@
 }
 
 .web_design_content{
-    background-color: #17c5c2;
-    border-radius: 15%;
+    background-color: #CEFF00;
+}
+
+.uil-web-grid{
+    color: #1c393d;
 }
 
 .web_development_content{
     background-color: #1c393d;
-    border-radius: 15%;
 }
 
 .web_dev_title{
