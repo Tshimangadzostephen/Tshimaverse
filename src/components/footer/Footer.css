@@ -1,6 +1,6 @@
 .footer {
-  background-color: #001830;
-  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+  background-color: var(--container-color);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer_container {
@@ -9,16 +9,19 @@
 
 .footer_title,
 .footer_link {
-  color: #CEFF00;
+  color: var(--title-color);
 }
 
+.uil-github-alt{
+  color: var(--title-color);
+}
 .footer_title {
   text-align: center;
   margin-bottom: var(--mb-2);
 }
 
 .footer_link:hover {
-  color: #c0ef03;
+  color: var(--title-color-dark);
 }
 
 .footer_list {
@@ -43,10 +46,10 @@
 .footer__copy {
   display: block;
   margin-top: 4.5rem;
-  color: #CEFF00;
-  opacity: 0.3;
+  color: var(--title-color);
   text-align: center;
   font-size: var(--smaller-font-size);
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 992px) {

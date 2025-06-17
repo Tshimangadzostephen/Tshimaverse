@@ -1,0 +1,144 @@
+.projects-section {
+  column-gap: 3rem;
+  justify-content: center;
+  padding: 2rem 4rem;
+  background-color: var(--body-color);
+}
+
+.projects-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 350px);
+  justify-content: center;
+  margin: auto;
+}
+
+.card {
+  border: 1px solid;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--container-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-image-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card-content {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  background-color: #ffffff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 25rem;
+  border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+.card-footer {
+  padding: 1rem;
+  padding-top: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-link {
+  font-size: 0.875rem;
+  color: var(--text-color);
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.skills__name {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  line-height: 18px;
+}
+
+.skills__level {
+  font-size: var(--tiny-font-size);
+}
+
+.card-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  border: var(--text-color) 1px solid;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+/* For large devices */
+@media screen and (max-width: 992px) {
+  .projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 2fr);
+    justify-content: center;
+    background-color: var(--container-color);
+  }
+}
+
+/* For medium devices */
+@media screen and (max-width: 650px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
