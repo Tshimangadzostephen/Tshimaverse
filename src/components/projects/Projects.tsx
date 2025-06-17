@@ -115,7 +115,7 @@ export default function Projects() {
     <section className="projects-section">
       <h2 className="section__title">Featured Projects</h2>
       <span className="section__subtitle">
-        A selection of my recent full-stack development projects
+        A selection of my recent projects
       </span>
       <div className="projects-grid">
         {projectData.map((project) => (
