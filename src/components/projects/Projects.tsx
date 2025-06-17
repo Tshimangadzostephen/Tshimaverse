@@ -112,7 +112,7 @@ export default function Projects() {
   ];
 
   return (
-    <section className="projects-section">
+    <section className="projects-section" id="projects">
       <h2 className="section__title">Featured Projects</h2>
       <span className="section__subtitle">
         A selection of my recent projects
