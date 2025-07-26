@@ -28,6 +28,8 @@ function ProjectCard({
           className="card-image"
           style={{
           objectFit: "cover",
+          width: "100%",
+          height: "200px",
         }}
         />
       </div>
