@@ -1,5 +1,5 @@
 .contact__container {
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(3, max-content);
   justify-content: center;
   column-gap: 6rem;
   padding-bottom: 3rem;
@@ -27,12 +27,17 @@
   padding: 1rem;
   border-radius: 0.75rem;
   text-align: center;
-  overflow-wrap: break-word; /* Ensures long words don't overflow */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
   word-wrap: break-word;
-  white-space: normal; /* Allows text to wrap */
-  max-width: 100%; /* Prevents it from overflowing its parent */
-  box-sizing: border-box; /* Includes padding in the total width */
+  white-space: normal;
+  max-width: 100%;
+  box-sizing: border-box;
   margin-right: 2rem;
+  height: 300px;
 }
 
 .contact__card-title,
@@ -112,7 +117,7 @@
   resize: none;
 }
 
-.bxl-whatsapp {
+/* .bxl-whatsapp {
   color: green;
 }
 
@@ -122,8 +127,39 @@
 
 .uil-linkedin-alt {
   color: #0077b5;
+} */
+
+.contact__vertical-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
+.icon-circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact__vertical-line {
+  width: 2px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
 /* For large devices */
 
 @media screen and (max-width: 992px) {

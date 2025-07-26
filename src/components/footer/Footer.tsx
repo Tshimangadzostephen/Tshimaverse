@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer_container container">
         {/* <h1 className="footer_title">Tshimangadzo</h1> */}
-        <ul className="footer_list">
+        {/* <ul className="footer_list">
           <li>
             <a href="#home" className="footer_link">
               Home
@@ -27,9 +27,9 @@ const Footer = () => {
               Projects
             </a>
           </li>
-        </ul>
+        </ul> */}
 
-        <div className="footer_social">
+        {/* <div className="footer_social">
           <a
             href="https://www.instagram.com/stephen_tshimangadzo/profilecard/?igsh=dWZpMzVndW5keXAw"
             className="footer__social-link instagram"
@@ -58,7 +58,7 @@ const Footer = () => {
           >
             <i className="uit uil-youtube"></i>
           </a>
-        </div>
+        </div> */}
 
         <span className="footer__copy">
           &#169; Tshimangadzo. All rights reserved

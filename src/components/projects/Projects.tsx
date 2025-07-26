@@ -87,7 +87,7 @@ export default function Projects() {
         "https://d585tldpucybw.cloudfront.net/sfimages/default-source/default-album/t-com_netcore_770px.png?sfvrsn=44c053c4_0",
       link: "",
       demo: "",
-      tags: ["C#","Swagger","SQL Server","Entity Framework","LINQ"],
+      tags: ["C#", "Swagger", "SQL Server", "Entity Framework", "LINQ"],
     },
     {
       title: "Coming Soon Page",
@@ -115,7 +115,7 @@ export default function Projects() {
     <section className="projects-section" id="projects">
       <h2 className="section__title">Featured Projects</h2>
       <span className="section__subtitle">
-        A selection of my recent projects
+        Some of the projects are from work and some are on my own time.
       </span>
       <div className="projects-grid">
         {projectData.map((project) => (

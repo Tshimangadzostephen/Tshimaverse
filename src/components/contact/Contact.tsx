@@ -46,18 +46,17 @@ const Contact = () => {
 
       <div className="contact__container container grid">
         <div className="contact__content">
-          <h3 className="contact_title">Connect with me</h3>
           <div className="contact__info">
-            {/* CARD 1*/}
             <div className="contact__card">
-              <i className="bx bx-mail-send contact__card-icon"></i>
-
-              <h3 className="contact__card-title">Email</h3>
-              {/* <span className="contact__card-data">
-                tshimangadzostephen@icloud.com
-              </span> */}
-              {/* <br></br> */}
-
+              <div className="contact__vertical-group">
+                <div className="icon-circle-container">
+                  <div className="icon-circle">
+                    <i className="bx bx-mail-send contact__card-icon"></i>
+                  </div>
+                  <div className="contact__vertical-line"></div>
+                </div>
+                <h3 className="contact__card-title">Email</h3>
+              </div>
               <a
                 href="mailto:tshimangadzo.munzhelele@icloud.com.com"
                 className="contact__button"
@@ -66,11 +65,21 @@ const Contact = () => {
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
               </a>
             </div>
+          </div>
+        </div>
 
-            {/* CARD 2*/}
+        <div className="contact__content">
+          <div className="contact__info">
             <div className="contact__card">
-              <i className="bx bxl-whatsapp contact__card-icon"></i>
-              <h3 className="contact__card-title">Whatsapp</h3>
+              <div className="contact__vertical-group">
+                <div className="icon-circle-container">
+                  <div className="icon-circle">
+                    <i className="bx bxl-whatsapp contact__card-icon"></i>
+                  </div>
+                  <div className="contact__vertical-line"></div>
+                </div>
+                <h3 className="contact__card-title">Whatsapp</h3>
+              </div>
               <a
                 href="https://api.whatsapp.com/send?phone=0799691833&text=Hello, from tshimaverse!"
                 className="contact__button"
@@ -79,14 +88,21 @@ const Contact = () => {
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
               </a>
             </div>
+          </div>
+        </div>
 
-            {/* CARD 3*/}
+        <div className="contact__content">
+          <div className="contact__info">
             <div className="contact__card">
+              <div className="contact__vertical-group">
+                <div className="icon-circle-container">
+                  <div className="icon-circle">
               <i className="uil uil-linkedin-alt contact__card-icon"></i>
-
-              <h3 className="contact__card-title">LinkedIn</h3>
-              {/* <br></br> */}
-
+                  </div>
+                  <div className="contact__vertical-line"></div>
+                </div>
+                <h3 className="contact__card-title">LinkedIn</h3>
+              </div>
               <a
                 href="https://www.linkedin.com/in/tshimangadzo-munzhelele/"
                 className="contact__button"
@@ -98,9 +114,20 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="contact__content">
-          <h3 className="contact_title">Write me your project</h3>
-
+        {/* <div className="contact__content">
+          <div className="contact__info">
+            <div className="contact__card">
+              <i className="uil uil-linkedin-alt contact__card-icon"></i>
+              <h3 className="contact__card-title">LinkedIn</h3>
+              <a
+                href="https://www.linkedin.com/in/tshimangadzo-munzhelele/"
+                className="contact__button"
+              >
+                Text me{" "}
+                <i className="bx bx-right-arrow-alt contact__button-icon"></i>
+              </a>
+            </div>
+          </div>
           <form className="contact__from" ref={form} onSubmit={sendEmail}>
             <div className="contact__form-div">
               <label className="contact__form-tag">Name</label>
@@ -158,7 +185,7 @@ const Contact = () => {
             </button>
             {message && <p style={{ marginTop: "1rem" }}>{message}</p>}
           </form>
-        </div>
+        </div> */}
       </div>
     </section>
   );
