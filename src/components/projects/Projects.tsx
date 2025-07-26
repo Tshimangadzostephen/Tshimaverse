@@ -82,12 +82,12 @@ export default function Projects() {
     {
       title: "Coming Soon Page",
       description:
-        "A project currently in development. More updates coming soon.",
+        "RESTful API built with .NET Core, integrated with SQL Server and JWT authentication. Fully documented and tested with Postman.",
       image:
-        "https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png",
+        "https://miro.medium.com/v2/resize:fit:1064/1*O4EpCHRBgn-sevVV-iHnjw.jpeg",
       link: "",
       demo: "",
-      tags: [],
+      tags: ["C#","Swagger","SQL Server","Entity Framework"],
     },
     {
       title: "Coming Soon Page",
