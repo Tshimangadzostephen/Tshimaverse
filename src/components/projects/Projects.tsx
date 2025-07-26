@@ -84,7 +84,7 @@ export default function Projects() {
       description:
         "RESTful API built with .NET Core, integrated with SQL Server and JWT authentication. Fully documented and tested with Postman.",
       image:
-        "https://miro.medium.com/v2/resize:fit:1064/1*O4EpCHRBgn-sevVV-iHnjw.jpeg",
+        "https://d585tldpucybw.cloudfront.net/sfimages/default-source/default-album/t-com_netcore_770px.png?sfvrsn=44c053c4_0",
       link: "",
       demo: "",
       tags: ["C#","Swagger","SQL Server","Entity Framework","LINQ"],
