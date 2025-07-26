@@ -26,6 +26,9 @@ function ProjectCard({
           src={image || "/placeholder.svg"}
           alt={title}
           className="card-image"
+          style={{
+          objectFit: "cover",
+        }}
         />
       </div>
       <div className="card-content">
@@ -80,14 +83,14 @@ export default function Projects() {
       tags: ["React", "CSS", "Vite"],
     },
     {
-      title: "Coming Soon Page",
+      title: "Inventory Management System",
       description:
         "RESTful API built with .NET Core, integrated with SQL Server and JWT authentication. Fully documented and tested with Postman.",
       image:
         "https://miro.medium.com/v2/resize:fit:1064/1*O4EpCHRBgn-sevVV-iHnjw.jpeg",
       link: "",
       demo: "",
-      tags: ["C#","Swagger","SQL Server","Entity Framework"],
+      tags: ["C#","Swagger","SQL Server","Entity Framework","LINQ"],
     },
     {
       title: "Coming Soon Page",
