@@ -26,11 +26,6 @@ function ProjectCard({
           src={image || "/placeholder.svg"}
           alt={title}
           className="card-image"
-          style={{
-          objectFit: "cover",
-          width: "100%",
-          height: "150px",
-        }}
         />
       </div>
       <div className="card-content">
