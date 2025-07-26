@@ -108,7 +108,7 @@ const Qualification = () => {
                   Moyo Business Advisory
                 </span>
                 <div className="qualification__calendar">
-                  <i className="uil uil-calendar-alt"></i>2024 - Present
+                  <i className="uil uil-calendar-alt"></i>2024 - 2025
                 </div>
               </div>
               <div>
