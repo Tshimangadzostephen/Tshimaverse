@@ -29,7 +29,7 @@ function ProjectCard({
           style={{
           objectFit: "cover",
           width: "100%",
-          height: "200px",
+          height: "150px",
         }}
         />
       </div>
