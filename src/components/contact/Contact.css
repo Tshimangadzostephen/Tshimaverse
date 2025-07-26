@@ -171,6 +171,7 @@
   .contact__container {
     grid-template-columns: 1fr;
     row-gap: 3rem;
+    align-items: center;
   }
 
   .contact__info {
@@ -190,10 +191,6 @@
 
   .contact__form {
     width: 100%;
-  }
-
-  .contact__container {
-    align-items: center;
   }
 }
 
