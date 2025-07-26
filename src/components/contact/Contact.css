@@ -191,6 +191,10 @@
   .contact__form {
     width: 100%;
   }
+
+  .contact__container {
+    align-items: center;
+  }
 }
 
 /* For small devices */
