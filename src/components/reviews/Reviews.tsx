@@ -24,8 +24,8 @@ const Reviews = () => {
 
   return (
     <section className="testimonial container section">
-      <h2 className="section__title">Echo Chamber</h2>
-      <span className="section__subtitle">Testimonials</span>
+      <h2 className="section__title">Recommendations</h2>
+      <span className="section__subtitle">Feedback from those I’ve learned from and worked with</span>
 
       <Swiper
         loop={true}
