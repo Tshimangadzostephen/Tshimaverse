@@ -1,6 +1,7 @@
 import React from "react";
 import "./Projects.css";
 import portfolioImage from "../../assets/portfolio_design.png";
+import kryptoImage from "../../assets/kryto.png"
 
 interface ProjectCardProps {
   title: string;
@@ -80,6 +81,23 @@ export default function Projects() {
       tags: ["React", "CSS", "Vite"],
     },
     {
+      title: "Partial Stack Overflow Clone",
+      description: "A basic Stack Overflow clone built with ASP.NET MVC 5, featuring question and answer functionality with SQL Server integration.",
+      image: "https://datascientest.com/en/files/2024/03/Stackoverflow-768x422-1.jpg",
+      link: "https://github.com/Tshimangadzostephen/StackOverflowProject",
+      demo: "",
+      tags: ["C#", "MVC", "SQL Server"]
+    },
+    {
+      title: "Krypto",
+      description:
+        "A conceptual project created as part of my Figma learning journey. This helped me explore design fundamentals, including layout grids and gradients.",
+      image: kryptoImage,
+      link: "",
+      demo: "https://www.figma.com/design/69BjYFdhr6alX1T5h2i7Be/KRYPTO-PROJECT?node-id=0-1&t=C7xKkRYIhP2AV4DI-1",
+      tags: ["Figma", "Grid", "Gradients"],
+    },
+    {
       title: "Inventory Management System",
       description:
         "RESTful API built with .NET Core, integrated with SQL Server and JWT authentication. Fully documented and tested with Postman.",
@@ -88,26 +106,6 @@ export default function Projects() {
       link: "",
       demo: "",
       tags: ["C#", "Swagger", "SQL Server", "Entity Framework", "LINQ"],
-    },
-    {
-      title: "Coming Soon Page",
-      description:
-        "A project currently in development. More updates coming soon.",
-      image:
-        "https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png",
-      link: "",
-      demo: "",
-      tags: [],
-    },
-    {
-      title: "Coming Soon Page",
-      description:
-        "A project currently in development. More updates coming soon.",
-      image:
-        "https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png",
-      link: "",
-      demo: "",
-      tags: [],
     },
   ];
 
