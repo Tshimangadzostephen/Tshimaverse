@@ -113,8 +113,7 @@ export default function Projects() {
     <section className="projects-section" id="projects">
       <h2 className="section__title">Featured Projects</h2>
       <span className="section__subtitle">
-        Some of the projects are from work and some are on my own time.
-      </span>
+        Self-initiated projects and experiments      </span>
       <div className="projects-grid">
         {projectData.map((project) => (
           <ProjectCard key={project.title} {...project} />
