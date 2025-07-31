@@ -79,7 +79,7 @@ const Frontend = () => {
               />
             </svg>
             <div>
-              <h3 className="skills__name">Playwrite</h3>
+              <h3 className="skills__name">Playwright</h3>
               <span className="skills__level">Basic</span>
             </div>
           </div>
