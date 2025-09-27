@@ -8,7 +8,7 @@ import DevOps from "./DevOps";
 const Skills = () => {
   return (
     <section className="skills section" id="skills">
-      <h2 className="section__title">Technical Skills</h2>
+      <h2 className="section__title">Tech Stack</h2>
       <span className="section__subtitle">My Technical Toolkit</span>
       <div className="skills_container container grid">
         <Frontend />
