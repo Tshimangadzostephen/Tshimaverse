@@ -25,7 +25,7 @@ const Qualification = () => {
             }
             onClick={() => toggleTab(1)}
           >
-            <i className="uil uil-graduation-cap qualification-icon"></i>
+            {/* <i className="uil uil-graduation-cap qualification-icon"></i> */}
             Education
           </div>
 
@@ -37,7 +37,7 @@ const Qualification = () => {
             }
             onClick={() => toggleTab(2)}
           >
-            <i className="uil uil-briefcase-alt qualification-icon"></i>
+            {/* <i className="uil uil-briefcase-alt qualification-icon"></i> */}
             Work History
           </div>
         </div>
