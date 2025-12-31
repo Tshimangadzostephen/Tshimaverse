@@ -9,12 +9,11 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 const Reviews = () => {
-  const [expandedIds, setExpandedIds] = useState<number[]>([]);
+  // store only ONE expanded card id
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const toggleDescription = (id: number) => {
-    setExpandedIds((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
+    setExpandedId((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -38,7 +37,7 @@ const Reviews = () => {
       >
         {DataReviews.map(
           ({ id, image, title, Subtitle, linkedin, description }) => {
-            const isExpanded = expandedIds.includes(id);
+            const isExpanded = expandedId === id;
 
             return (
               <SwiperSlide className="testimonial__slide" key={id}>
