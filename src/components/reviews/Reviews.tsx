@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import { DataReviews } from "./DataReviews";
 import "./Reviews.css";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import required modules
 import { Pagination } from "swiper/modules";
-
-const MAX_LENGTH = 200;
 
 const Reviews = () => {
   const [expandedIds, setExpandedIds] = useState<number[]>([]);
@@ -25,11 +20,13 @@ const Reviews = () => {
   return (
     <section className="testimonial container section">
       <h2 className="section__title">Recommendations</h2>
-      <span className="section__subtitle">Feedback from those I’ve learned from and worked with</span>
+      <span className="section__subtitle">
+        Feedback from those I’ve learned from and worked with
+      </span>
 
       <Swiper
-        loop={true}
-        grabCursor={true}
+        loop
+        grabCursor
         spaceBetween={24}
         pagination={{ clickable: true }}
         breakpoints={{
@@ -42,41 +39,43 @@ const Reviews = () => {
         {DataReviews.map(
           ({ id, image, title, Subtitle, linkedin, description }) => {
             const isExpanded = expandedIds.includes(id);
-            const displayText = isExpanded
-              ? description
-              : description.length > MAX_LENGTH
-              ? description.slice(0, MAX_LENGTH) + "..."
-              : description;
 
             return (
-              <SwiperSlide className="testimonial__card" key={id}>
-                <img src={image} alt="" className="testimonial__img" />
-                <h3 className="testimonial__name">
-                  {title} |{" "}
-                  <a
-                    href={linkedin}
-                    className="home__social-icon linkedin"
-                    target="_blank"
+              <SwiperSlide className="testimonial__slide" key={id}>
+                <div className="testimonial__card">
+                  <img src={image} alt="" className="testimonial__img" />
+
+                  <h3 className="testimonial__name">
+                    {title} |{" "}
+                    <a
+                      href={linkedin}
+                      className="home__social-icon linkedin"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="uil uil-linkedin-alt"></i>
+                    </a>
+                  </h3>
+
+                  <h5 className="testimonial__subtitle">| {Subtitle}</h5>
+
+                  <p
+                    className={`testimonial__description ${
+                      isExpanded ? "expanded" : ""
+                    }`}
                   >
-                    <i className="uil uil-linkedin-alt"></i>
-                  </a>
-                </h3>
-                <h5 className="testimonial__subtitle">| {Subtitle}</h5>
-                <p className="testimonial__description">
-                  {displayText}
-                  {description.length > MAX_LENGTH && (
+                    {description}
+                  </p>
+
+                  {description.length > 150 && (
                     <span
+                      className="testimonial__toggle"
                       onClick={() => toggleDescription(id)}
-                      style={{
-                        color: "#1c393d",
-                        cursor: "pointer",
-                        marginLeft: 5,
-                      }}
                     >
                       {isExpanded ? "Show less" : "Read more"}
                     </span>
                   )}
-                </p>
+                </div>
               </SwiperSlide>
             );
           }
