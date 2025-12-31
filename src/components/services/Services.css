@@ -1,5 +1,5 @@
 .services__container{
-    grid-template-columns: repeat(3,270px);
+    grid-template-columns: repeat(4,270px);
     justify-content: center;
     column-gap: 1.8rem;
 }
@@ -90,16 +90,41 @@
 
 }
 
-.uil-whatsapp{
-    color: green;
+
+.api_backend_content {
+    background-color: #006d5b;
 }
 
-.whatsapp_content {
+.api_backend_content .services__title,
+.uil-server {
+    color: #fff;
+}
+
+.services__button.api_backend_button {
+    color: white !important; 
+}
+
+.api_backend_content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobile_dev_content {
     background-color: #17c5c2;
+}
+
+.mobile_dev_content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .web_design_content{
     background-color: #CEFF00;
+}
+
+.web_design_content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .uil-web-grid{
@@ -108,6 +133,11 @@
 
 .web_development_content{
     background-color: #1c393d;
+}
+
+.web_development_content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .web_dev_title{
@@ -156,14 +186,14 @@
 /* For large devices */
 @media screen and (max-width: 992px) {
     .services__container{
-        grid-template-columns: repeat(3,218px);
+        grid-template-columns: repeat(2,218px);
     }
 }
 
 /* For medium devices */
 @media screen and (max-width: 768px) {
     .services__container{
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .services__content{
