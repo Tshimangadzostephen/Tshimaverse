@@ -13,9 +13,13 @@ const About = () => {
         <div className="about__data">
           <Info />
           <p className="about__description">
-            I work across front-end, back-end, databases, and cloud, always
-            eager to learn and take on new challenges. Open to collaborations —
-            Feel free to connect!
+            I'm a passionate full-stack developer who thrives on building scalable and efficient solutions. 
+            From crafting intuitive user interfaces to architecting robust backend systems, I work across 
+            the entire tech stack including front-end frameworks, backend APIs, databases, and cloud infrastructure. 
+            I'm always eager to learn new technologies and take on challenging projects.
+            <br />
+            <br />
+            Open to collaborations, Feel free to connect!
           </p>
 
           <a href="#projects" className="button button--flex">
