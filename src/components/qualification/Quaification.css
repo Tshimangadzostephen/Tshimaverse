@@ -1,5 +1,8 @@
+/* Container & Tabs */
 .qualification__container {
   max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .qualification__tabs {
@@ -25,17 +28,11 @@
   border: none;
   transition: all 0.3s ease;
   background-color: transparent;
-  position: relative;
 }
 
 .qualification__button:hover {
   color: var(--title-color);
   transform: translateY(-2px);
-}
-
-.qualification-icon {
-  font-size: 1.8rem;
-  margin-right: var(--mb-0-25);
 }
 
 .qualification__active {
@@ -49,206 +46,120 @@
   transform: translateY(-2px);
 }
 
-.qualification__sections {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  margin-top: 3rem;
+.qualification__sections{
+    display:grid;
+    grid-template-columns: 0.5fr;
+    justify-content: center;
 }
 
-.qualification__content {
-  display: none;
-  animation: fadeIn 0.5s ease;
+.qualification__content{
+    display: none;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.qualification__content-active{
+    display: block;
 }
 
-.qualification__content-active {
-  display: block;
+.qualification__data{
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    column-gap: 1.5rem;
 }
 
-.qualification__data {
-  display: grid;
-  grid-template-columns: 1fr max-content 1fr;
-  column-gap: 1.5rem;
-  margin-bottom: 2.5rem;
-  position: relative;
+.qualification__title{
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
 }
 
-.qualification__data:last-child {
-  margin-bottom: 0;
+.qualification__subtitle{
+    display: flex;
+    align-items: center;
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
 }
 
-.qualification__title {
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-semi-bold);
-  margin-bottom: 0.5rem;
-  color: var(--title-color);
+.qualification__calendar{
+    font-size: var(--small-font-size);
 }
 
-.qualification__subtitle {
-  display: flex;
-  align-items: center;
-  font-size: var(--normal-font-size);
-  margin-bottom: var(--mb-1);
-  color: var(--text-color);
-  gap: 0.5rem;
+.uil-calendar-alt{
+    margin-right: 0.5rem;
 }
 
-.qualification__calendar {
-  font-size: var(--small-font-size);
-  color: var(--text-color);
-  display: flex;
-  align-items: center;
-  opacity: 0.8;
+.qualification__rounder{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-color: var(--text-color);
+    border-radius: 50%;
 }
 
-.uil-calendar-alt {
-  margin-right: 0.5rem;
+.qualification__line{
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: var(--text-color);
+    transform: translate(6px,-7px);
 }
 
-.qualification__rounder {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  background-color: var(--title-color-dark);
-  border-radius: 50%;
-  border: 3px solid var(--container-color);
-  box-shadow: 0 0 0 3px var(--title-color-dark);
-  position: relative;
-  z-index: 1;
+.up__img{
+    width: 1rem;   
+    height: 2rem;
+    margin-right: 0.5rem;
 }
 
-.qualification__line {
-  display: block;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    var(--title-color-dark) 0%,
-    var(--text-color) 100%
-  );
-  transform: translate(6.5px, -7px);
-  opacity: 0.3;
+.moyo__img{
+    width: 4rem;   
+    height: 3rem;
+    margin-right: 0.5rem;
 }
 
-/* Image styling */
-.up__img,
-.moyo__img,
-.rev_img {
-  object-fit: contain;
-  filter: grayscale(20%);
-  transition: all 0.3s ease;
-}
-
-.qualification__subtitle:hover .up__img,
-.qualification__subtitle:hover .moyo__img,
-.qualification__subtitle:hover .rev_img {
-  filter: grayscale(0%);
-  transform: scale(1.05);
-}
-
-.up__img {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.moyo__img {
-  width: 3.5rem;
-  height: 2.5rem;
-}
-
-.rev_img {
-  width: 3rem;
-  height: 1rem;
-}
-
-/* Card-like styling for qualification items */
-.qualification__data > div:first-child,
-.qualification__data > div:last-child {
-  padding: 1.5rem;
-  border-radius: 1rem;
-  transition: all 0.3s ease;
-  background-color: var(--container-color);
-}
-
-.qualification__data > div:first-child:hover,
-.qualification__data > div:last-child:hover {
-  background-color: rgba(0, 0, 0, 0.02);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+.rev_img{
+    width: 3rem;   
+    height: 1rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 /* For large devices */
 @media screen and (max-width: 992px) {
-  .qualification__container {
-    margin-left: auto;
-    margin-right: auto;
-  }
+   .qualification__container{
+        margin-left: auto;
+        margin-right: auto;
+   }
 }
 
 /* For medium devices */
 @media screen and (max-width: 768px) {
-  .qualification__container {
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
-  }
-
-  .qualification__button {
-    font-size: var(--normal-font-size);
-    padding: 0.6rem 1.5rem;
-  }
-
-  .qualification__data > div:first-child,
-  .qualification__data > div:last-child {
-    padding: 1rem;
-  }
+    .qualification__container{
+        margin-left: var(--mb-1-5);
+        margin-right: var(--mb-1-5);
+   }
+   
+   .qualification__button{
+        font-size: var(--normal-font-size);
+        padding: 0.6rem 1.2rem;
+   }
 }
 
 @media screen and (max-width: 576px) {
-  .qualification__sections {
-    grid-template-columns: initial;
-  }
+    .qualification__sections{
+        grid-template-columns: initial;
+    }
 
-  .qualification__button {
-    padding: 0.5rem 1.2rem;
-    font-size: var(--small-font-size);
-  }
-
-  .qualification__data {
-    column-gap: 1rem;
-  }
-
-  .qualification__title {
-    font-size: var(--normal-font-size);
-  }
+    .qualification__button {
+        padding: 0.5rem 1rem;
+        font-size: var(--small-font-size);
+    }
 }
 
 /* For small devices */
 @media screen and (max-width: 350px) {
-  .qualification__data {
-    gap: 0.5rem;
-  }
-
-  .qualification__button {
-    padding: 0.4rem 0.8rem;
-  }
-
-  .qualification__tabs {
-    padding: 0.3rem;
-  }
-
-  .qualification__data > div:first-child,
-  .qualification__data > div:last-child {
-    padding: 0.75rem;
-  }
+    .qualification__data{
+        gap: 0.5rem;
+    }
+    
+    .qualification__button {
+        padding: 0.4rem 0.8rem;
+    }
 }
