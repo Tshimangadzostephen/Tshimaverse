@@ -1,5 +1,5 @@
 .services__container{
-    grid-template-columns: repeat(2,270px);
+    grid-template-columns: repeat(3,270px);
     justify-content: center;
     column-gap: 1.8rem;
 }
@@ -95,8 +95,7 @@
 }
 
 .whatsapp_content {
-    background-color: #e5ddd5;
-    border-radius: 15%;
+    background-color: #17c5c2;
 }
 
 .web_design_content{
@@ -157,14 +156,14 @@
 /* For large devices */
 @media screen and (max-width: 992px) {
     .services__container{
-        grid-template-columns: repeat(2,218px);
+        grid-template-columns: repeat(3,218px);
     }
 }
 
 /* For medium devices */
 @media screen and (max-width: 768px) {
     .services__container{
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(3,1fr);
     }
 
     .services__content{

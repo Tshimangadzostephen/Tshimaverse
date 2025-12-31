@@ -40,22 +40,6 @@ const Services = () => {
                 Designing intuitive, user-friendly, and visually appealing
                 websites with a focus on user experience (UX).
               </p>
-              {/* <ul className="services__modal-services grid">
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">Web Design</p>
-                </li>
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">Web Development</p>
-                </li>
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">
-                    WhatsApp Business Solutions
-                  </p>
-                </li>
-              </ul> */}
             </div>
           </div>
         </div>
@@ -92,31 +76,15 @@ const Services = () => {
                 I build responsive and user-friendly web applications using
                 modern frameworks like Angular and .NET.
               </p>
-              {/* <ul className="services__modal-services grid">
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">Web Design</p>
-                </li>
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">Web Development</p>
-                </li>
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">
-                    WhatsApp Business Solutions
-                  </p>
-                </li>
-              </ul> */}
             </div>
           </div>
         </div>
 
-        {/* <div className="services__content whatsapp_content">
+        <div className="services__content whatsapp_content">
           <div>
-            <i className="uil uil-whatsapp services__icon"></i>
+            <i className="uil uil-mobile-android services__icon"></i>
             <h3 className="services__title">
-              WhatsApp Business <br /> Solution
+              Mobile <br/>Development
             </h3>
           </div>
 
@@ -137,32 +105,15 @@ const Services = () => {
                 onClick={() => toggleTab(0)}
               ></i>
               <h3 className="services__modal-title">
-                WhatsApp Business Solution
+                Mobile Development
               </h3>
               <p className="services__modal-description">
-                Setting up and optimizing WhatsApp Business accounts, automating
-                responses, and integrating with customer support or sales
-                systems.
+                Creating intuitive and responsive mobile applications that focus on real user needs,
+                performance, and clean, maintainable code.
               </p>
-              <ul className="services__modal-services grid">
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">Web Design</p>
-                </li>
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">Web Development</p>
-                </li>
-                <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon"></i>
-                  <p className="services__modal-info">
-                    WhatsApp Business Solutions
-                  </p>
-                </li>
-              </ul>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   );
