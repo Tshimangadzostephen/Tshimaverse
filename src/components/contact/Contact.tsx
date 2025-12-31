@@ -40,7 +40,7 @@ const Contact = () => {
   return (
     <section className="contact section" id="contact">
       <div className="contact__container container">
-        <h2 className="contact__title">Get in Touch</h2>
+        <h2 className="contact__title">Contact</h2>
         
         <form className="contact__form" ref={form} onSubmit={sendEmail}>
           <div className="contact__form-group">
