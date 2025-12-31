@@ -16,7 +16,7 @@ const Contact = () => {
     const email = formData.get("email")?.toString().trim();
     const messageText = formData.get("message")?.toString().trim();
 
-    if (!name || !email || !messageText) {
+    if (!name && !email && !messageText) {
       setMessage("⚠️ Please fill in all fields before sending.");
       return;
     }
@@ -66,7 +66,7 @@ const Contact = () => {
           <div className="contact__form-group">
             <label className="contact__form-label">Message</label>
             <textarea
-              name="message"
+              name="messageText"
               className="contact__form-input contact__form-textarea"
               rows={6}
               required
