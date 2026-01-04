@@ -1,8 +1,46 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Data = () => {
+  const dataRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!dataRef.current) return;
+
+    // Select individual elements inside Data
+    const title = dataRef.current.querySelector(".home__title");
+    const subtitle = dataRef.current.querySelector(".home__subtitle");
+    const description = dataRef.current.querySelector(".home__description");
+    const button = dataRef.current.querySelector(".button");
+
+    // Animate each element separately
+    gsap.fromTo(
+      title,
+      { opacity: 0, y: -40 },
+      { opacity: 1, y: 0, duration: 2, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+      subtitle,
+      { opacity: 0, y: -30 },
+      { opacity: 1, y: 0, duration: 2, delay: 0.2, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+      description,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 2, delay: 0.4, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+      button,
+      { opacity: 0, y: 20, scale: 0.9 },
+      { opacity: 1, y: 0, scale: 1, duration: 2, delay: 0.6, ease: "back.out(1.7)" }
+    );
+  }, []);
+
   return (
-    <div className="home__data">
+    <div className="home__data" ref={dataRef}>
       <h1 className="home__title">Tshimangadzo Munzhelele</h1>
       <h3 className="home__subtitle">Software Developer</h3>
       <p className="home__description">

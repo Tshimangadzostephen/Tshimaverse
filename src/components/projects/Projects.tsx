@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Projects.css";
 import portfolioImage from "../../assets/portfolio_design.png";
 import kryptoImage from "../../assets/kryto.png";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -9,6 +11,8 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ProjectCardProps {
   title: string;
@@ -76,6 +80,9 @@ function ProjectCard({
 }
 
 export default function Projects() {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   const projectData: ProjectCardProps[] = [
     {
       title: "Personal Portfolio",
@@ -115,11 +122,171 @@ export default function Projects() {
     },
   ];
 
+  useEffect(() => {
+    // Only run animations on desktop
+    const isDesktop = window.innerWidth > 1024;
+
+    if (!isDesktop) return; // Skip animations on mobile/tablet
+
+    const ctx = gsap.context(() => {
+      // Heading animation - fade and slide down
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: -50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+            end: "top 30%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // Swiper wrapper animation - fade and scale
+      gsap.fromTo(
+        wrapperRef.current,
+        { opacity: 0, scale: 0.9, y: 50 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: "top 80%",
+            end: "top 20%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // Project cards animation - stagger slide up
+      gsap.fromTo(
+        ".card",
+        {
+          opacity: 0,
+          y: 80,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: "top 75%",
+            end: "top 20%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // Card images animation - zoom in
+      gsap.fromTo(
+        ".card-image",
+        {
+          scale: 1.3,
+          opacity: 0,
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: "top 75%",
+            end: "top 20%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // Card titles animation - slide from left
+      gsap.fromTo(
+        ".card-title",
+        {
+          opacity: 0,
+          x: -30,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.7,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: "top 75%",
+            end: "top 20%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // Tags animation - pop in
+      gsap.fromTo(
+        ".card-tag",
+        {
+          opacity: 0,
+          scale: 0,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: "top 70%",
+            end: "top 20%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // Buttons animation - slide up
+      gsap.fromTo(
+        ".card-button",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: "top 70%",
+            end: "top 20%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section className="projects-section section">
-      <h2 className="projects-heading">Featured Projects</h2>
+      <h2 className="projects-heading" ref={headingRef}>Featured Projects</h2>
 
-      <div className="projects-wrapper">
+      <div className="projects-wrapper" ref={wrapperRef}>
         <Swiper
           modules={[Pagination]}
           loop
