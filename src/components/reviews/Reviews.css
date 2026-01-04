@@ -1,9 +1,14 @@
 .testimonial__container {
-  width: 1024px;
+  width: 100% !important;
+  max-width: 1024px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
 }
 
 .testimonial__slide {
   height: 100%;
+  padding: 0 1rem !important;
+  box-sizing: border-box !important;
 }
 
 .testimonial__card {
@@ -11,11 +16,12 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1.5rem 2rem;
   border-radius: 1.5rem;
-  margin-bottom: var(--mb-3);
-
+  margin-bottom: 0; /* Removed margin since pagination is outside now */
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100% !important;
+  box-sizing: border-box;
 }
 
 /* Image */
@@ -42,12 +48,10 @@
 .testimonial__description {
   font-size: var(--small-font-size);
   line-height: 1.5;
-
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
   overflow: hidden;
-
   margin-top: auto;
 }
 
@@ -66,19 +70,43 @@
   align-self: flex-start;
 }
 
-/* Pagination */
+/* Swiper overrides */
+.swiper {
+  padding: 0 !important;
+  padding-bottom: 3rem !important; /* Space for pagination */
+}
+
+.swiper-wrapper {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Pagination positioning - OUTSIDE and BELOW cards */
+.swiper-pagination {
+  position: relative !important;
+  bottom: 0 !important;
+  margin-top: 2rem !important;
+  padding-bottom: 1rem !important;
+}
+
 .swiper-pagination-bullet {
   background-color: var(--text-color) !important;
+  opacity: 0.5 !important;
 }
 
 .swiper-pagination-bullet-active {
   background-color: var(--title-color) !important;
+  opacity: 1 !important;
 }
 
 /* Medium devices */
 @media screen and (max-width: 992px) {
   .testimonial__container {
-    width: initial;
+    padding: 0 1.5rem !important;
+  }
+
+  .testimonial__slide {
+    padding: 0 0.75rem !important;
   }
 
   .testimonial__card {
@@ -88,14 +116,43 @@
 
 /* Tablets */
 @media screen and (max-width: 768px) {
+  .testimonial__container {
+    padding: 0 1.5rem !important;
+  }
+
+  .testimonial__slide {
+    padding: 0 0.5rem !important;
+  }
+
   .testimonial__description {
     -webkit-line-clamp: 5;
   }
 }
 
-/* Mobile */
-@media screen and (max-width: 576px) {
+/* Mobile - iPhone 14 Pro Max (430px) */
+@media screen and (max-width: 430px) {
+  .testimonial__container {
+    padding: 0 1.5rem !important;
+  }
+
+  .testimonial__slide {
+    padding: 0 0.5rem !important;
+  }
+
+  .testimonial__card {
+    padding: 1.5rem 1.25rem;
+    margin: 0 !important;
+  }
+
   .testimonial__description {
     -webkit-line-clamp: 4;
+  }
+
+  .swiper {
+    padding-bottom: 2.5rem !important;
+  }
+
+  .swiper-pagination {
+    margin-top: 1.5rem !important;
   }
 }

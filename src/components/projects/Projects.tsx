@@ -1,7 +1,14 @@
 import React from "react";
 import "./Projects.css";
 import portfolioImage from "../../assets/portfolio_design.png";
-import kryptoImage from "../../assets/kryto.png"
+import kryptoImage from "../../assets/kryto.png";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface ProjectCardProps {
   title: string;
@@ -23,23 +30,22 @@ function ProjectCard({
   return (
     <div className="card">
       <div className="card-image-wrapper">
-        <img
-          src={image || "/placeholder.svg"}
-          alt={title}
-          className="card-image"
-        />
+        <img src={image} alt={title} className="card-image" />
       </div>
+
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
         <p className="card-description">{description}</p>
+
         <div className="card-tags">
-          {tags.map((tag) => (
+          {tags.map(tag => (
             <span key={tag} className="card-tag">
               {tag}
             </span>
           ))}
         </div>
       </div>
+
       <div className="card-footer">
         {link && (
           <a
@@ -73,8 +79,7 @@ export default function Projects() {
   const projectData: ProjectCardProps[] = [
     {
       title: "Personal Portfolio",
-      description:
-        "A personal portfolio website built with React, CSS and Vite.",
+      description: "A personal portfolio website built with React, CSS and Vite.",
       image: portfolioImage,
       link: "https://github.com/Tshimangadzostephen/Tshimaverse",
       demo: "https://tshimaverse.vercel.app",
@@ -82,42 +87,57 @@ export default function Projects() {
     },
     {
       title: "Partial Stack Overflow Clone",
-      description: "A basic Stack Overflow clone built with ASP.NET MVC 5, featuring question and answer functionality with SQL Server integration.",
-      image: "https://datascientest.com/en/files/2024/03/Stackoverflow-768x422-1.jpg",
+      description:
+        "A basic Stack Overflow clone built with ASP.NET MVC 5 and SQL Server.",
+      image:
+        "https://datascientest.com/en/files/2024/03/Stackoverflow-768x422-1.jpg",
       link: "https://github.com/Tshimangadzostephen/StackOverflowProject",
-      demo: "",
-      tags: ["C#", "MVC", "SQL Server"]
+      tags: ["C#", "MVC", "SQL Server"],
     },
     {
       title: "Krypto",
       description:
-        "A conceptual project created as part of my Figma learning journey. This helped me explore design fundamentals, including layout grids and gradients.",
+        "A conceptual Figma project exploring layout grids and gradients.",
       image: kryptoImage,
+      demo:
+        "https://www.figma.com/design/69BjYFdhr6alX1T5h2i7Be/KRYPTO-PROJECT",
       link: "",
-      demo: "https://www.figma.com/design/69BjYFdhr6alX1T5h2i7Be/KRYPTO-PROJECT?node-id=0-1&t=C7xKkRYIhP2AV4DI-1",
       tags: ["Figma", "Grid", "Gradients"],
     },
     {
       title: "Inventory Management System",
       description:
-        "RESTful API built with .NET Core, integrated with SQL Server and JWT authentication. Fully documented and tested with Postman.",
+        "RESTful API built with .NET Core, SQL Server and JWT authentication.",
       image:
-        "https://d585tldpucybw.cloudfront.net/sfimages/default-source/default-album/t-com_netcore_770px.png?sfvrsn=44c053c4_0",
+        "https://d585tldpucybw.cloudfront.net/sfimages/default-source/default-album/t-com_netcore_770px.png",
       link: "",
-      demo: "",
-      tags: ["C#", "Swagger", "SQL Server", "Entity Framework", "LINQ"],
+      tags: ["C#", "Swagger", "SQL Server", "EF"],
     },
   ];
 
   return (
-    <section className="projects-section" id="projects">
-      <h2 className="section__title">Featured Projects</h2>
-      <span className="section__subtitle">
-        Self-initiated projects and experiments      </span>
-      <div className="projects-grid">
-        {projectData.map((project) => (
-          <ProjectCard key={project.title} {...project} />
-        ))}
+    <section className="projects-section section">
+      <h2 className="projects-heading">Featured Projects</h2>
+
+      <div className="projects-wrapper">
+        <Swiper
+          modules={[Pagination]}
+          loop
+          grabCursor
+          spaceBetween={16}
+          slidesPerView={2}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+          }}
+        >
+          {projectData.map(project => (
+            <SwiperSlide key={project.title}>
+              <ProjectCard {...project} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

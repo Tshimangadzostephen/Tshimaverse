@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Services.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Service {
   id: number;
@@ -51,17 +55,151 @@ const servicesData: Service[] = [
 
 const Services = () => {
   const [flippedCard, setFlippedCard] = useState<number | null>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const toggleCard = (id: number) => {
     setFlippedCard(flippedCard === id ? null : id);
   };
 
+  useEffect(() => {
+    // Only run animations on desktop
+    if (window.innerWidth >= 1024) {
+      const ctx = gsap.context(() => {
+        // Title animation
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: -50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 85%",
+              end: "top 30%",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+
+        // Subtitle animation
+        gsap.fromTo(
+          subtitleRef.current,
+          { opacity: 0, y: -30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: subtitleRef.current,
+              start: "top 85%",
+              end: "top 30%",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+
+        // Service cards animation
+        gsap.fromTo(
+          ".services__content",
+          { opacity: 0, y: 100, scale: 0.8 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.9,
+            stagger: 0.15,
+            ease: "power3.out",
+            clearProps: "transform",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 75%",
+              end: "top 20%",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+
+        // Service icons animation
+        gsap.fromTo(
+          ".services__icon",
+          { opacity: 0, scale: 0, rotation: -180 },
+          {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "back.out(2)",
+            clearProps: "transform",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 75%",
+              end: "top 20%",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+
+        // Service titles animation
+        gsap.fromTo(
+          ".services__title",
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power2.out",
+            clearProps: "transform",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 75%",
+              end: "top 20%",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+
+        // Service buttons animation
+        gsap.fromTo(
+          ".services__button",
+          { opacity: 0, scale: 0.5 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "back.out(1.7)",
+            clearProps: "transform",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 70%",
+              end: "top 20%",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+      });
+
+      return () => ctx.revert();
+    }
+  }, []);
+
   return (
     <section className="services section" id="services">
-      <h2 className="section__title">What I Offer</h2>
-      <span className="section__subtitle">Highlights</span>
+      <h2 className="section__title" ref={titleRef}>
+        What I Offer
+      </h2>
+      <span className="section__subtitle" ref={subtitleRef}>
+        Highlights
+      </span>
 
-      <div className="services__container container">
+      <div className="services__container container" ref={containerRef}>
         {servicesData.map(
           ({ id, icon, title, description, colorClass, buttonClass }) => (
             <div
@@ -89,9 +227,7 @@ const Services = () => {
 
               {/* Back */}
               <div className="services__back">
-                <h3 className="services__modal-title">
-                  {title.join(" ")}
-                </h3>
+                <h3 className="services__modal-title">{title.join(" ")}</h3>
                 <p className="services__modal-description">{description}</p>
                 <span
                   className={`services__button ${buttonClass}`}

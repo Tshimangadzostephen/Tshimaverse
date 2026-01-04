@@ -1,8 +1,18 @@
+
+
 .about__container {
+  /* Remove flex centering */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   column-gap: 4rem;
+  height: 100%;
 }
+
+
 .about__img {
   width: 350px;
   justify-self: center;
@@ -46,56 +56,6 @@
   padding: 0.4rem 0 0;
   margin-bottom: var(--mb-2-5);
 }
-
-/* .experience{
-  background-color: #CEFF00;
-}
-
-.projects{
-  background-color: #ffffff;
-}
-
-.projects .about__title {
-  color: #022344 !important;
-}
-
-.projects .about__subtitle {
-  color: #022344 !important;
-  opacity: 0.5;
-} 
-
-.projects .about__icon {
-  color: #022344 !important;
-}
-
-.licenses {
-  background-color: #022344;
-}
-
-.licenses .about__title {
-  color: #CEFF00 !important;
-}
-
-.licenses .about__subtitle {
-  color: #CEFF00 !important;
-  opacity: 0.5;
-}
- 
-.licenses .about__icon {
-  color: #CEFF00 !important;
-}
-
-.focus .about__title{
-  color: #326afd;
-}
-.focus .about__subtitle {
-  color: #326afd;
-  opacity: 0.5;
-}
-
-.focus .about__icon {
-  color: #326afd;
-} */
 
 /* For large devices */
 @media screen and (max-width: 992px) {

@@ -1,24 +1,34 @@
 .projects-section {
-  column-gap: 3rem;
-  justify-content: center;
-  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--body-color);
+  padding: 4rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+section {
+  overflow: hidden;
 }
 
 .projects-heading {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.25rem;
+  padding: 0 2rem;
 }
 
-.projects-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(2, 350px);
-  justify-content: center;
-  margin: auto;
+/* Wrapper */
+.projects-wrapper {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
 }
+
+/* ================== CARD ================== */
 
 .card {
   border: 1px solid;
@@ -26,19 +36,26 @@
   overflow: hidden;
   background-color: var(--container-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s;
+
+  width: 100%;
+  max-width: 340px;
+  height: 100%; /* 🔑 equal height */
 }
 
-.card:hover .card-image {
-  transform: scale(1.05);
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Image */
 .card-image-wrapper {
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  max-height: 160px;
 }
 
 .card-image {
@@ -48,97 +65,138 @@
   transition: transform 0.3s ease;
 }
 
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Content */
 .card-content {
   padding: 1rem;
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* 🔑 stretches content */
 }
 
 .card-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .card-description {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #6b7280;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
 }
 
+/* Tags */
 .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  margin-top: auto; /* 🔑 pushes tags down consistently */
 }
 
 .card-tag {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   background-color: #ffffff;
-  padding: 0.3rem 0.6rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 25rem;
   border: 1px solid rgba(107, 114, 128, 0.2);
 }
 
+/* Footer */
 .card-footer {
-  padding: 1rem;
-  padding-top: 0;
+  padding: 0 1rem 1rem;
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
+
+  min-height: 44px; /* equal footer height even if empty */
+  margin-top: auto; /* always bottom-aligned */
 }
 
-.card-link {
-  font-size: 0.875rem;
-  color: var(--text-color);
-  font-weight: 500;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.card-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.skills__name {
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  line-height: 18px;
-}
-
-.skills__level {
-  font-size: var(--tiny-font-size);
-}
-
+/* Buttons */
 .card-button {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
   color: var(--text-color);
-  border: var(--text-color) 1px solid;
+  border: 1px solid var(--text-color);
   border-radius: 8px;
   text-decoration: none;
+  font-size: 0.8rem;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* For large devices */
-@media screen and (max-width: 992px) {
-  .projects-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(2, 2fr);
-    justify-content: center;
-    background-color: var(--container-color);
+.card-button:hover {
+  background-color: var(--title-color);
+  color: var(--container-color);
+  border-color: var(--title-color);
+}
+
+/* Allow hover movement without clipping */
+/* Allow hover lift without breaking Swiper */
+.projects-section .swiper {
+  overflow-x: hidden;
+  overflow-y: visible;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.projects-section .swiper-wrapper {
+  overflow: visible;
+}
+
+.projects-section .swiper-slide {
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  padding-top: 10px; /*space for hover lift */
+}
+
+/* ================== PAGINATION DOTS ================== */
+
+.swiper-pagination {
+  bottom: 0.75rem !important;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(107, 114, 128, 0.4);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--title-color);
+  transform: scale(1.2);
+}
+
+
+/* ================== RESPONSIVE ================== */
+
+@media screen and (max-width: 768px) {
+  .projects-wrapper {
+    max-width: 420px;
   }
 }
 
-/* For medium devices */
-@media screen and (max-width: 650px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
+@media screen and (max-width: 576px) {
+  .projects-wrapper {
+    padding: 0 1.25rem;
+  }
+
+  .projects-heading {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    max-width: 100%;
   }
 }

@@ -28,11 +28,13 @@ const Reviews = () => {
         grabCursor
         spaceBetween={24}
         pagination={{ clickable: true }}
-        breakpoints={{
-          576: { slidesPerView: 2 },
-          768: { slidesPerView: 3, spaceBetween: 48 },
-        }}
         modules={[Pagination]}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          576: { slidesPerView: 1 },
+          768: { slidesPerView: 2, spaceBetween: 32 },
+          1024: { slidesPerView: 3, spaceBetween: 48 },
+        }}
         className="testimonial__container"
       >
         {DataReviews.map(
@@ -59,9 +61,8 @@ const Reviews = () => {
                   <h5 className="testimonial__subtitle">| {Subtitle}</h5>
 
                   <p
-                    className={`testimonial__description ${
-                      isExpanded ? "expanded" : ""
-                    }`}
+                    className={`testimonial__description ${isExpanded ? "expanded" : ""
+                      }`}
                   >
                     {description}
                   </p>
