@@ -283,7 +283,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="projects-section section">
+    <section className="projects-section section" id="projects">
       <h2 className="projects-heading" ref={headingRef}>Featured Projects</h2>
 
       <div className="projects-wrapper" ref={wrapperRef}>
