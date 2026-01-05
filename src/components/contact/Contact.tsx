@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
   const [message, setMessage] = useState<string | null>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const socialRef = useRef<HTMLDivElement>(null);
 
@@ -21,9 +21,9 @@ const Contact = () => {
     const formData = new FormData(form.current);
     const name = formData.get("name")?.toString().trim();
     const email = formData.get("email")?.toString().trim();
-    const messageText = formData.get("message")?.toString().trim();
+    const messageText = formData.get("messageText")?.toString().trim();
 
-    if (!name && !email && !messageText) {
+    if (!name || !email || !messageText) {
       setMessage("⚠️ Please fill in all fields before sending.");
       return;
     }
@@ -45,34 +45,34 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    // Only run animations on desktop
     const isDesktop = window.innerWidth > 1024;
 
-    if (!isDesktop) return; // Skip animations on mobile/tablet
+    if (!isDesktop) return;
 
     const ctx = gsap.context(() => {
-      // Title animation - fade and slide down
+      // Hero text animation
       gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: -50 },
+        heroTextRef.current,
+        { opacity: 0, x: -80, scale: 0.95 },
         {
           opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
+          x: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 85%",
-            end: "top 30%",
+            trigger: heroTextRef.current,
+            start: "top 80%",
+            end: "top 20%",
             toggleActions: "play reverse play reverse",
           },
         }
       );
 
-      // Form animation - slide from left with fade
+      // Form animation
       gsap.fromTo(
         formRef.current,
-        { opacity: 0, x: -80, scale: 0.95 },
+        { opacity: 0, x: 80, scale: 0.95 },
         {
           opacity: 1,
           x: 0,
@@ -88,38 +88,13 @@ const Contact = () => {
         }
       );
 
-      // Form groups animation - stagger from bottom
+      // Form groups stagger
       gsap.fromTo(
         ".contact__form-group",
-        {
-          opacity: 0,
-          y: 50,
-        },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: formRef.current,
-            start: "top 75%",
-            end: "top 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        }
-      );
-
-      // Input fields animation - slide from right
-      gsap.fromTo(
-        ".contact__form-input",
-        {
-          opacity: 0,
-          x: 30,
-        },
-        {
-          opacity: 1,
-          x: 0,
           duration: 0.6,
           stagger: 0.1,
           ease: "power2.out",
@@ -132,20 +107,16 @@ const Contact = () => {
         }
       );
 
-      // Submit button animation - pop in with bounce
+      // Submit button
       gsap.fromTo(
         ".contact__submit-btn",
-        {
-          opacity: 0,
-          scale: 0.5,
-          y: 30,
-        },
+        { opacity: 0, scale: 0.8, y: 20 },
         {
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 0.8,
-          ease: "back.out(2)",
+          duration: 0.7,
+          ease: "back.out(1.5)",
           scrollTrigger: {
             trigger: formRef.current,
             start: "top 70%",
@@ -155,47 +126,20 @@ const Contact = () => {
         }
       );
 
-      // Social links container animation - slide from right
-      gsap.fromTo(
-        socialRef.current,
-        {
-          opacity: 0,
-          x: 80,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: socialRef.current,
-            start: "top 80%",
-            end: "top 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        }
-      );
-
-      // Individual social icons - stagger rotate and scale
+      // Social icons
       gsap.fromTo(
         ".contact__social-link",
-        {
-          opacity: 0,
-          scale: 0,
-          rotation: -180,
-        },
+        { opacity: 0, scale: 0, rotation: -180 },
         {
           opacity: 1,
           scale: 1,
           rotation: 0,
-          duration: 0.7,
-          stagger: 0.15,
+          duration: 0.6,
+          stagger: 0.1,
           ease: "back.out(2)",
           scrollTrigger: {
             trigger: socialRef.current,
-            start: "top 75%",
+            start: "top 80%",
             end: "top 20%",
             toggleActions: "play reverse play reverse",
           },
@@ -209,68 +153,90 @@ const Contact = () => {
   return (
     <section className="contact section" id="contact">
       <div className="contact__container container">
-        <h2 className="contact__title" ref={titleRef}>Contact Me</h2>
+        <h2 className="section__title">Contact Me</h2>
+        <span className="section__subtitle">Let's work together</span>
         
-        <form className="contact__form" ref={formRef} onSubmit={sendEmail}>
-          <div className="contact__form-group">
-            <label className="contact__form-label">Name</label>
-            <input
-              type="text"
-              name="name"
-              className="contact__form-input"
-              required
-            />
+        <div className="contact__content">
+          {/* Left: Hero Text - Desktop Only */}
+          <div className="contact__hero" ref={heroTextRef}>
+            <h2 className="contact__hero-text">
+              <span className="contact__hero-light">Say Hi!</span> and tell me
+              about your idea.
+            </h2>
+            <p className="contact__hero-subtitle">
+              Got a project in mind? 
+              <br/>
+              Reach out and let’s chat.
+            </p>
           </div>
 
-          <div className="contact__form-group">
-            <label className="contact__form-label">Email</label>
-            <input
-              type="email"
-              name="email"
-              className="contact__form-input"
-              required
-            />
+          {/* Right: Form */}
+          <div className="contact__form-wrapper">
+            <form className="contact__form" ref={formRef} onSubmit={sendEmail}>
+              <div className="contact__form-group">
+                <label className="contact__form-label">Name*</label>
+                <input
+                  type="text"
+                  name="name"
+                  className="contact__form-input"
+                  placeholder="Hello..."
+                  required
+                />
+              </div>
+
+              <div className="contact__form-group">
+                <label className="contact__form-label">Email*</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="contact__form-input"
+                  placeholder="Where can I reply?"
+                  required
+                />
+              </div>
+
+              <div className="contact__form-group">
+                <label className="contact__form-label">Message*</label>
+                <textarea
+                  name="messageText"
+                  className="contact__form-input contact__form-textarea"
+                  rows={6}
+                  placeholder="I want to build some..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" className="contact__submit-btn">
+                Submit →
+              </button>
+
+              {message && <p className="contact__message">{message}</p>}
+            </form>
+
+            <div className="contact__social" ref={socialRef}>
+              <a
+                href="mailto:tshimangadzo.munzhelele@icloud.com"
+                className="contact__social-link"
+                title="Email"
+              >
+                <i className="bx bx-mail-send"></i>
+              </a>
+              <a
+                href="https://api.whatsapp.com/send?phone=+27799691833&text=Hello, from tshimaverse!"
+                className="contact__social-link"
+                title="WhatsApp"
+              >
+                <i className="bx bxl-whatsapp"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/tshimangadzo-munzhelele/"
+                className="contact__social-link"
+                title="LinkedIn"
+              >
+                <i className="uil uil-linkedin-alt"></i>
+              </a>
+            </div>
           </div>
-
-          <div className="contact__form-group">
-            <label className="contact__form-label">Message</label>
-            <textarea
-              name="messageText"
-              className="contact__form-input contact__form-textarea"
-              rows={6}
-              required
-            ></textarea>
-          </div>
-
-          <button type="submit" className="contact__submit-btn">
-            Send Message
-          </button>
-          
-          {message && <p className="contact__message">{message}</p>}
-        </form>
-
-        <div className="contact__social" ref={socialRef}>
-          <a
-            href="mailto:tshimangadzo.munzhelele@icloud.com"
-            className="contact__social-link"
-            title="Email"
-          >
-            <i className="bx bx-mail-send"></i>
-          </a>
-          <a
-            href="https://api.whatsapp.com/send?phone=+27799691833&text=Hello, from tshimaverse!"
-            className="contact__social-link"
-            title="WhatsApp"
-          >
-            <i className="bx bxl-whatsapp"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/tshimangadzo-munzhelele/"
-            className="contact__social-link"
-            title="LinkedIn"
-          >
-            <i className="uil uil-linkedin-alt"></i>
-          </a>
         </div>
       </div>
     </section>
