@@ -41,7 +41,11 @@ const Data = () => {
 
   return (
     <div className="home__data" ref={dataRef}>
-      <h1 className="home__title">Tshimangadzo Munzhelele</h1>
+      <h1 className="home__title">
+        <span className="logo-light">Tshimangadzo</span>
+        <br />
+        <span className="logo-dark">Munzhelele</span>
+      </h1>
       <h3 className="home__subtitle">Software Developer</h3>
       <p className="home__description">
         Adaptable, resilient, and creative software developer driven by a
