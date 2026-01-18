@@ -47,7 +47,7 @@ function App() {
 
       banner.innerHTML = `
         <span>
-          For the best interactive experience, we recommend using a larger screen or desktop.
+          For the best interactive experience, I recommend using a larger screen or desktop.
         </span>
         <button id="banner-close-btn" style="
           background: #fff;
