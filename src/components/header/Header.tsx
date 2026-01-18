@@ -106,7 +106,7 @@ const Header = () => {
             <li className="nav__item">
               <a
                 href="#projects"
-                data-mobile="Works"
+                data-mobile="Projects"
                 onClick={() => handleLinkClick("projects")}
                 className={`nav__link ${
                   activeSection === "projects" ? "active-link" : ""

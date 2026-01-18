@@ -52,7 +52,7 @@
   margin-left: -2px;
 }
 
-/* Desktop list */
+/* Desktop nav */
 .nav__list {
   display: flex !important;
   column-gap: 2rem;
@@ -68,12 +68,12 @@
   transition: 0.3s;
 }
 
-/* Desktop icons visible (your original behavior) */
+/* ✅ Hide icons on desktop (your original preference) */
 .nav__icon {
-  display: block;
-  font-size: 1.2rem;
+  display: none;
 }
 
+/* Active link */
 .active-link,
 .nav__link:hover {
   color: var(--title-color-dark);
@@ -89,7 +89,6 @@
 /* MOBILE OVERLAY MENU */
 /* ============================= */
 @media screen and (max-width: 768px) {
-  /* show toggle on mobile */
   .nav__toggle {
     display: block;
     font-size: 1.1rem;
@@ -118,7 +117,6 @@
     transform: translateY(0);
   }
 
-  /* Center list */
   .nav__list {
     display: flex !important;
     flex-direction: column;
@@ -132,13 +130,14 @@
     list-style: none;
   }
 
-  /* Hide desktop icons + text in overlay */
-  .nav__icon {
-    display: none !important;
-  }
-
+  /* Hide desktop text inside overlay */
   .nav__link-text {
     display: none;
+  }
+
+  /* Hide icons in overlay too */
+  .nav__icon {
+    display: none !important;
   }
 
   /* Show mobile labels */
@@ -188,7 +187,6 @@
 
   .nav__footer-row {
     display: flex;
-    align-items: center;
     justify-content: center;
     margin-bottom: 0.75rem;
   }
@@ -238,7 +236,6 @@
   }
 }
 
-/* Small devices */
 @media screen and (max-width: 350px) {
   .nav__logo {
     font-size: 1.1rem;
