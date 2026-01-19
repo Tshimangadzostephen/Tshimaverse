@@ -1,4 +1,7 @@
+// src/App.tsx
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import About from "./components/about/About";
@@ -10,13 +13,15 @@ import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 import Projects from "./components/projects/Projects";
 
+import ProjectCaseStudy from "./components/projects/ProjectCaseStudy";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
+function AppLayout() {
   const [isDesktop, setIsDesktop] = useState<boolean>(window.innerWidth > 1024);
 
   useEffect(() => {
@@ -192,4 +197,13 @@ function App() {
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppLayout />} />
+        <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
