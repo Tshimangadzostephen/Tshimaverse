@@ -2,6 +2,8 @@
 import portfolioImage from "../../assets/portfolio_design.png";
 import kryptoImage from "../../assets/kryto.png";
 import MovieFlixImg from "../../assets/movies.png";
+import atmImg from "../../assets/atm.png";
+
 
 export interface CaseStudySection {
   title: string;
@@ -122,6 +124,76 @@ export const projects: ProjectItem[] = [
           title: "Outcome",
           body: [
             "A smooth browsing experience with a clean design system and a practical feature set for a movie catalog app.",
+          ],
+        },
+      ],
+    },
+  },
+    {
+    title: "ATM Banking System Simulator",
+    slug: "atm-banking-system",
+    description:
+      "A Windows HTA ATM simulator implementing an NDC-style state machine with realistic transaction flows and device simulations.",
+    image: atmImg,
+    link: "https://github.com/Tshimangadzostephen/ATM-Banking-System",
+    demo: "", // optional
+    tags: ["HTML", "CSS", "JavaScript", "Windows HTA", "State Machine", "ISO-8583","ActiveX"],
+    caseStudy: {
+      heroTitle: "ATM Banking System Simulator",
+      overview:
+        "A realistic ATM simulator built for testing and learning. It models a full NDC-style state machine and simulates devices like card reader, PIN pad, network authorization, and cash dispensing.",
+      highlights: [
+        "NDC-style state machine architecture (each screen is a state)",
+        "End-to-end cash withdrawal, balance inquiry, fast cash, mini statement flows",
+        "Security rules: PIN masking, 3-attempt lockout + card retention, timeouts",
+        "Device simulations: card reader, keypad, cash dispenser, printer, network",
+        "ISO-8583-style host message simulation with response codes (00, 51, 61, 91)",
+      ],
+      techStack: [
+        "HTML/CSS/JavaScript",
+        "Windows HTA (HTML Application Host)",
+        "State-based routing via index.hta + iframe state loader",
+        "Mock controllers: GrgApp, GrgDataPool, GrgNetwork",
+      ],
+      sections: [
+        {
+          title: "Problem",
+          body: [
+            "Create a realistic ATM experience for training/testing without real banking infrastructure.",
+            "Support multiple transactions and edge cases (timeouts, insufficient funds, limits, device issues).",
+          ],
+        },
+        {
+          title: "Approach",
+          body: [
+            "Implemented a state-driven architecture inspired by NDC where each screen is its own state HTML file.",
+            "Centralized state transitions through a container (index.hta) that loads states into an iframe.",
+            "Built mock controllers for state management, transaction data, and network authorization simulation.",
+          ],
+        },
+        {
+          title: "Transaction Flows",
+          body: [
+            "Cash Withdrawal: 000 → 136 → 137 → 141 → 395 → 789 → 907 → 909",
+            "Balance Inquiry: 000 → 136 → 137 → 141 → 789 → 766 → 909",
+            "Fast Cash: 000 → 136 → 137 → 141 → 395 → 789 → 907 → 909",
+          ],
+        },
+        {
+          title: "Security & Rules",
+          body: [
+            "Masked PIN input and validation with limited attempts.",
+            "Session timeouts per state and safe recovery back to idle.",
+            "Daily limit enforcement and balance validation before dispensing cash.",
+            "Card retention simulation after repeated PIN failure.",
+          ],
+        },
+        {
+          title: "What I’d Improve Next",
+          body: [
+            "More detailed receipt formatting and print simulation.",
+            "Better test harness + scenario runner (automated state navigation).",
+            "Additional failure states (cash jam, network retries, partial dispense).",
           ],
         },
       ],
