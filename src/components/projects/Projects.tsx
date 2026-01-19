@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./Projects.css";
 import portfolioImage from "../../assets/portfolio_design.png";
 import kryptoImage from "../../assets/kryto.png";
+import MovieFlixImg from "../../assets/movies.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -93,6 +94,16 @@ export default function Projects() {
       tags: ["React", "CSS", "Vite"],
     },
     {
+      title: "Krypto",
+      description:
+        "A conceptual Figma project exploring layout grids and gradients.",
+      image: kryptoImage,
+      demo:
+        "https://www.figma.com/design/69BjYFdhr6alX1T5h2i7Be/KRYPTO-PROJECT",
+      link: "",
+      tags: ["Figma", "Grid", "Gradients"],
+    },
+    {
       title: "Partial Stack Overflow Clone",
       description:
         "A basic Stack Overflow clone built with ASP.NET MVC 5 and SQL Server.",
@@ -102,14 +113,13 @@ export default function Projects() {
       tags: ["C#", "MVC", "SQL Server"],
     },
     {
-      title: "Krypto",
+      title: "MovieFlix",
       description:
-        "A conceptual Figma project exploring layout grids and gradients.",
-      image: kryptoImage,
-      demo:
-        "https://www.figma.com/design/69BjYFdhr6alX1T5h2i7Be/KRYPTO-PROJECT",
-      link: "",
-      tags: ["Figma", "Grid", "Gradients"],
+        "A React Native movie app featuring search, trending movies, and a saved collection powered by the TMDB API.",
+      image: MovieFlixImg,
+      demo:"",
+      link: "https://github.com/Tshimangadzostephen/movie_app",
+      tags: ["Expo", "React Native", "TMDB API", "Typescript"],
     },
     {
       title: "Inventory Management System",
