@@ -206,3 +206,8 @@ section {
   color: inherit;
   display: block;
 }
+
+.case-section p {
+  white-space: pre-line;
+}
+
